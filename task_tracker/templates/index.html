@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of tasks</title>
+</head>
+
+<body>
+    <h1>List of tasks:</h1>
+    <table width="80%" style="text-align: justify">
+        <td>Task Name</td>
+        <td>Task Discription</td>
+        {% for task_items in all_items %}
+        <tr>
+            <td>{{ task_items.task_name}}</td>
+            <td>{{ task_items.task_discription}}</td>
+            <td>
+                <form action="/deleteTask/{{ task_items.id }}/" method="POST"> {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/addTask/" method="POST">{% csrf_token %}
+        <input type="text" placeholder="Name" name="task_name">
+        <input type="text" placeholder="Discription" name="task_discription">
+        <input type="submit" value="Add">
+    </form>
+</body>
+
+</html>
