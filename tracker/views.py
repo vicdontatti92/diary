@@ -16,19 +16,19 @@ def task_add(request: WSGIRequest) -> HttpResponseRedirect:
         name=request.POST['name'], description=request.POST['description'],
     )
     DjangoTasks().add(task=et)
-    return HttpResponseRedirect(reverse('tracker_root'))
+    return HttpResponseRedirect(reverse('tracker_root'))  # noqa: WPS226
 
 
 def task_delete(request: WSGIRequest, id_: int) -> HttpResponseRedirect:
     DjangoTasks().delete(id)
-    return HttpResponseRedirect(reverse('tracker_root'))
+    return HttpResponseRedirect(reverse('tracker_root'))  # noqa: WPS226
 
 
 def task_complete(request: WSGIRequest, id_: int) -> HttpResponseRedirect:
     DjangoTasks().complete(id)
-    return HttpResponseRedirect(reverse('tracker_root'))
+    return HttpResponseRedirect(reverse('tracker_root'))  # noqa: WPS226
 
 
 def task_uncomplete(request: WSGIRequest, id_: int) -> HttpResponseRedirect:
     DjangoTasks().uncomplete(id)
-    return HttpResponseRedirect(reverse('tracker_root'))
+    return HttpResponseRedirect(reverse('tracker_root'))  # noqa: WPS226
