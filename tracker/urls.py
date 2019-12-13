@@ -11,10 +11,10 @@ from tracker.views import (
 urlpatterns = [
     path('', tasks_catalogue, name='tracker_root'),
     path('add/', task_add, name='tracker_task_add'),
-    path('delete/<int:id>/', task_delete, name='tracker_task_delete'),
-    path('complete/<int:id>/', task_complete, name='tracker_task_complete'),
+    path('delete/<int:id_>/', task_delete, name='tracker_task_delete'),
+    path('complete/<int:id_>/', task_complete, name='tracker_task_complete'),
     path(
-        'uncomplete/<int:id>/',
+        'uncomplete/<int:id_>/',
         task_uncomplete,
         name='tracker_task_uncomplete',
     ),

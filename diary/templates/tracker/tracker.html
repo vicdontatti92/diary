@@ -18,12 +18,12 @@
             <td><s>{{ task_items.name }}</s></td>
             <td><s>{{ task_items.description }}</s></td>
             <td>
-                <form action="{% url 'tracker_task_uncomplete' id=task_items.id %}" method="POST"> {% csrf_token %}
+                <form action="{% url 'tracker_task_uncomplete' id_=task_items.id %}" method="POST"> {% csrf_token %}
                     <input type="submit" value="Uncoplete">
                 </form>
             </td>
             <td>
-                <form action="{% url 'tracker_task_delete' id=task_items.id %}" method="POST"> {% csrf_token %}
+                <form action="{% url 'tracker_task_delete' id_=task_items.id %}" method="POST"> {% csrf_token %}
                     <input type="submit" value="Delete">
                 </form>
             </td>
@@ -33,12 +33,12 @@
             <td>{{ task_items.name }}</td>
             <td>{{ task_items.description }}</td>
             <td>
-                <form action="{% url 'tracker_task_complete' id=task_items.id %}" method="POST"> {% csrf_token %}
+                <form action="{% url 'tracker_task_complete' id_=task_items.id %}" method="POST"> {% csrf_token %}
                     <input type="submit" value="Complete">
                 </form>
             </td>
             <td>
-                <form action="{% url 'tracker_task_delete' id=task_items.id %}" method="POST"> {% csrf_token %}
+                <form action="{% url 'tracker_task_delete' id_=task_items.id %}" method="POST"> {% csrf_token %}
                     <input type="submit" value="Delete">
                 </form>
             </td>
