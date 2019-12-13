@@ -6,12 +6,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('task_tracker', '0001_initial'),
+        ('diary', '0001_initial'),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='taskitem',
-            name='task_id',
-        ),
+        migrations.RemoveField(model_name='taskitem', name='task_id',),
     ]

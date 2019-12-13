@@ -11,6 +11,9 @@ black = "*"
 isort = "*"
 django-stubs = "*"
 pytest = "*"
+ipython = "*"
+rope = "*"
+ipdb = "*"
 
 [packages]
 django = "*"
