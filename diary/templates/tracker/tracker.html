@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of tasks</title>
+</head>
+
+<body>
+    <h1>List of tasks:</h1>
+    {% if all_items %}
+    <table style="text-align: justify">
+        {% for task_items in all_items %}
+        {% if task_items.complete %}
+        <tr>
+            <td><s>{{ task_items.name }}</s></td>
+            <td><s>{{ task_items.description }}</s></td>
+            <td>
+                <form action="{% url 'tracker_task_uncomplete' id_=task_items.id %}" method="POST"> {% csrf_token %}
+                    <input type="submit" value="Uncoplete">
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'tracker_task_delete' id_=task_items.id %}" method="POST"> {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>{{ task_items.name }}</td>
+            <td>{{ task_items.description }}</td>
+            <td>
+                <form action="{% url 'tracker_task_complete' id_=task_items.id %}" method="POST"> {% csrf_token %}
+                    <input type="submit" value="Complete">
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'tracker_task_delete' id_=task_items.id %}" method="POST"> {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </table>
+
+    <form action="{% url 'tracker_task_add' %}" method="POST">{% csrf_token %}
+        <input type="text" placeholder="Name" name="name">
+        <input type="text" placeholder="Discription" name="description">
+        <input type="submit" value="Add">
+    </form>
+</body>
+
+</html>
