@@ -15,21 +15,20 @@ def task_add(request: WSGIRequest) -> HttpResponseRedirect:
     et = entity.Task(
         name=request.POST['name'], description=request.POST['description'],
     )
-    print(et)
     DjangoTasks().add(task=et)
     return HttpResponseRedirect(reverse('tracker_root'))
 
 
-def task_delete(request: WSGIRequest, id: int) -> HttpResponseRedirect:
+def task_delete(request: WSGIRequest, id_: int) -> HttpResponseRedirect:
     DjangoTasks().delete(id)
     return HttpResponseRedirect(reverse('tracker_root'))
 
 
-def task_complete(request: WSGIRequest, id: int) -> HttpResponseRedirect:
+def task_complete(request: WSGIRequest, id_: int) -> HttpResponseRedirect:
     DjangoTasks().complete(id)
     return HttpResponseRedirect(reverse('tracker_root'))
 
 
-def task_uncomplete(request: WSGIRequest, id: int) -> HttpResponseRedirect:
+def task_uncomplete(request: WSGIRequest, id_: int) -> HttpResponseRedirect:
     DjangoTasks().uncomplete(id)
     return HttpResponseRedirect(reverse('tracker_root'))

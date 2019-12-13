@@ -25,7 +25,7 @@ class Task:
             raise TypeError('name should be string')
 
         if len(self.name) > 1400:  # noqa:WPS432
-            raise ValueError('discription length should be less than 1401',)
+            raise ValueError('discription length should be less than 1401')
 
     def validate_id(self) -> None:
         if not isinstance(self.id, int):
